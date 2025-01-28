@@ -109,6 +109,8 @@ const styles = StyleSheet.create({
     padding: 5,
     width: 200,
     fontSize: 20,
+    backgroundColor: "#f8f8f8",
+    borderRadius: 8
   },
   inputContainer: {
     flexDirection: "row",
