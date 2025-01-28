@@ -23,9 +23,12 @@ const MainApp = () => {
 
   const handleClear = () => {
     const alert = todos.every((todo) => !todo.isChecked);
-    console.log(alert)
+    console.log(alert);
     if (alert) {
-      Alert.alert('Check Yourself Tommy', 'None of the items on the list have been checked off');
+      Alert.alert(
+        "Check Yourself Tommy",
+        "None of the items on the list have been checked off"
+      );
     } else {
       dispatch(clearTodos(true));
     }
@@ -51,10 +54,7 @@ const MainApp = () => {
         </View>
       </View>
       <View>
-        <TouchableOpacity
-          style={styles.clearButton}
-          onPress={handleClear}
-        >
+        <TouchableOpacity style={styles.clearButton} onPress={handleClear}>
           <Text style={styles.buttonText}>Clear</Text>
         </TouchableOpacity>
       </View>
@@ -72,6 +72,7 @@ export default function App() {
     </Provider>
   );
 }
+
 const styles = StyleSheet.create({
   button: {
     width: 85,
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#70EE63",
     alignItems: "center",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 125 : 0,
   },
