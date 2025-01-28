@@ -9,7 +9,7 @@ const TodoList = () => {
   return (
     <View style={styles.listContainer}>
       {todos.map((todo, i) => (
-        <Todo key={`todo-${i}`} todo={todo} />
+        <Todo key={`todo-${i}`} id={todo.id} todo={todo.todo} />
       ))}
     </View>
   );
@@ -18,6 +18,7 @@ const TodoList = () => {
 const styles = StyleSheet.create({
   listContainer: {
     top: 40,
+    alignItems: 'center'
   },
 });
 

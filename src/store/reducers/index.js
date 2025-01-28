@@ -12,7 +12,7 @@ export const appSlice = createSlice({
       state.todos.push(action.payload);
     },
     removeTodo: (state, action) => {
-      state.todos = state.todos.filter((todo) => todo !== action.payload);
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
   },
 });

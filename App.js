@@ -1,5 +1,5 @@
 import React from "react";
-import { Provider, useDispatch } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./src/store/store";
 import {
   StyleSheet,
@@ -18,6 +18,9 @@ const MainApp = () => {
   const [text, setText] = React.useState("");
   const dispatch = useDispatch();
 
+  const todos = useSelector((state) => state.app.todos);
+  console.log(todos)
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -27,7 +30,7 @@ const MainApp = () => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              dispatch(addTodo(text));
+              dispatch(addTodo({id: todos.length, todo: text}));
               setText("");
             }}
           >
