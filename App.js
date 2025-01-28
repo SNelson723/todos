@@ -9,17 +9,27 @@ import {
   TouchableOpacity,
   Platform,
   StatusBar,
+  Alert,
 } from "react-native";
 
 import TodoList from "./components/TodoList";
-import { addTodo } from "./src/store/reducers";
+import { addTodo, clearTodos } from "./src/store/reducers";
 
 const MainApp = () => {
   const [text, setText] = React.useState("");
   const dispatch = useDispatch();
-
   const todos = useSelector((state) => state.app.todos);
-  console.log(todos)
+  // console.log(todos)
+
+  const handleClear = () => {
+    const alert = todos.every((todo) => !todo.isChecked);
+    console.log(alert)
+    if (alert) {
+      Alert.alert('Check Yourself Tommy', 'None of the items on the list have been checked off');
+    } else {
+      dispatch(clearTodos(true));
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -30,7 +40,9 @@ const MainApp = () => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              dispatch(addTodo({id: todos.length, todo: text}));
+              dispatch(
+                addTodo({ id: todos.length, todo: text, isChecked: false })
+              );
               setText("");
             }}
           >
@@ -39,7 +51,15 @@ const MainApp = () => {
         </View>
       </View>
       <View>
-        <TodoList />
+        <TouchableOpacity
+          style={styles.clearButton}
+          onPress={handleClear}
+        >
+          <Text style={styles.buttonText}>Clear</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TodoList todos={todos} />
       </View>
     </View>
   );
@@ -65,6 +85,16 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
   },
+  clearButton: {
+    width: 85,
+    height: 35,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    backgroundColor: "red",
+    fontSize: 16,
+    marginTop: 10,
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -75,8 +105,9 @@ const styles = StyleSheet.create({
     height: 35,
     marginRight: 10,
     borderWidth: 1,
-    padding: 10,
+    padding: 5,
     width: 200,
+    fontSize: 20,
   },
   inputContainer: {
     flexDirection: "row",
