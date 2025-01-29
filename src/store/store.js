@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import appReducer from "./reducers/todoSlice";
+import todosReducer from "./reducers/todoSlice";
+import decodeReducer from './reducers/decodeSlice';
 
 export const store = configureStore({
   reducer: {
-    app: appReducer,
+    todos: todosReducer,
+    decodes: decodeReducer
   },
 });

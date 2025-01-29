@@ -19,7 +19,7 @@ const TodoList = ({ todos }) => {
 
 const styles = StyleSheet.create({
   listContainer: {
-    top: 40,
+    top: 30,
     alignItems: "center",
   },
 });

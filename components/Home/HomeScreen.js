@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }) => {
         style={styles.button}
         onPress={() => navigation.navigate("Barcodes")}
       >
-        <Text style={styles.buttonText}>Bar Codes Decodes</Text>
+        <Text style={styles.buttonText}>Bar Code Decodes</Text>
       </TouchableOpacity>
     </View>
   );
@@ -31,17 +31,19 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   button: {
-    width: 125,
-    height: 45,
+    width: 130,
+    height: 65,
     backgroundColor: "#007AFF",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 5,
-    marginBottom: 30
+    marginBottom: 30,
+    padding: 5
   },
   buttonText: {
     color: "white",
-    fontSize: 16,
+    fontSize: 20,
+    textAlign: 'center'
   },
 });
 
