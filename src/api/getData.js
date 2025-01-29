@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const getBarCodes = async (url, token) => {
+export const getData = async (url, token) => {
   try {
     const response = await axios({
       method: "GET",
-      url: "https://devapi.dcr-support.com/mobile/BarcodeDecodes",
+      url: url,
       headers: {
         "Content-Type": "application/json",
         Accept: 'application/json',

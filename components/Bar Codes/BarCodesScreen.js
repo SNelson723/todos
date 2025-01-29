@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { getBarCodes } from "../../src/api/barCodesApi";
+import { getData } from "../../src/api/getData";
 import BarCodeTable from "./BarCodeTable";
 import { setDecodes } from '../../src/store/reducers/decodeSlice';
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,10 @@ const BarCodesScreen = ({ route }) => {
   React.useEffect(() => {
     const fetchBarCodes = async () => {
       try {
-        const codes = await getBarCodes("", token);
+        const codes = await getBarCodes(
+          "https://devapi.dcr-support.com/mobile/BarcodeDecodes",
+          token
+        );
         dispatch(setDecodes(codes))
         
       } catch (error) {

@@ -16,6 +16,12 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Bar Code Decodes</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Stores")}
+      >
+        <Text style={styles.buttonText}>DCR Stores</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -26,9 +32,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingTop: 150,
     alignItems: "flex-start",
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 50,
-    flexWrap: 'wrap'
+    flexWrap: "wrap",
+    backgroundColor: "#66cc91",
   },
   button: {
     width: 130,
@@ -38,12 +45,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 5,
     marginBottom: 30,
-    padding: 5
+    padding: 5,
   },
   buttonText: {
     color: "white",
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: "center",
   },
 });
 
