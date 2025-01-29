@@ -16,6 +16,12 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Bar Code Decodes</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Stores")}
+      >
+        <Text style={styles.buttonText}>DCR Stores</Text>
+      </TouchableOpacity>
     </View>
   );
 };

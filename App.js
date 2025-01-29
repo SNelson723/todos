@@ -8,6 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./components/Home/HomeScreen";
 import TodoScreen from "./components/ToDo/TodoScreen";
 import BarCodesScreen from "./components/Bar Codes/BarCodesScreen";
+import StoresScreen from "./components/Stores/StoresScreen";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,11 @@ const MainApp = () => {
         <Stack.Screen
           name="Barcodes"
           component={BarCodesScreen}
+          initialParams={{ token }}
+        />
+        <Stack.Screen
+          name="Stores"
+          component={StoresScreen}
           initialParams={{ token }}
         />
       </Stack.Navigator>
