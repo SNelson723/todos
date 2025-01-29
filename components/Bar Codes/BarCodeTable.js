@@ -7,8 +7,8 @@ import {
 } from "react-native";
 import BarCode from "./BarCode";
 
-const BarCodeTable = ({ barCodes }) => {
-  const { width, height } = useWindowDimensions();
+const BarCodeTable = ({ decodes }) => {
+  const { width } = useWindowDimensions();
 
   return (
     <View>
@@ -23,7 +23,7 @@ const BarCodeTable = ({ barCodes }) => {
           </Text>
           <Text style={[styles.text, { width: "45%" }]}>Decode</Text>
         </View>
-        {barCodes.map((code, i) => (
+        {decodes.map((code, i) => (
           <BarCode
             key={`barcode-decode-${i}`}
             index={i}

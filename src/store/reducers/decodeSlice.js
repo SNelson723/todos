@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   decodes: [],
-  filteredDecodes: []
 };
 
 export const decodeSlice = createSlice({
@@ -12,14 +11,8 @@ export const decodeSlice = createSlice({
     setDecodes: (state, action) => {
       state.decodes = action.payload;
     },
-    setFilteredDecodes: (state, action) => {
-      const { key, value } = action.payload;
-      state.filteredDecodes = state.decodes.filter(
-        (decode) => decode[key] === value
-      );
-    },
   },
 });
 
-export const { setDecodes, setFilteredDecodes } = decodeSlice.actions;
+export const { setDecodes } = decodeSlice.actions;
 export default decodeSlice.reducer;
