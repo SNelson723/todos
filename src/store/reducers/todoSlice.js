@@ -4,8 +4,8 @@ const initialState = {
   todos: [],
 };
 
-export const appSlice = createSlice({
-  name: "app",
+export const todoSlice = createSlice({
+  name: "todos",
   initialState,
   reducers: {
     addTodo: (state, action) => {
@@ -29,5 +29,5 @@ export const appSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, clearTodos, setChecked } = appSlice.actions;
-export default appSlice.reducer;
+export const { addTodo, removeTodo, clearTodos, setChecked } = todoSlice.actions;
+export default todoSlice.reducer;
