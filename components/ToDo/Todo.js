@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTodo, setChecked } from "../src/store/reducers"; // Adjust the import path as needed
+import { removeTodo, setChecked } from "../../src/store/reducers"; // Adjust the import path as needed
 
 const Todo = ({ todo, id, isChecked }) => {
   const dispatch = useDispatch();
@@ -9,7 +9,10 @@ const Todo = ({ todo, id, isChecked }) => {
     const alert = !isChecked;
 
     if (alert) {
-      Alert.alert('Check Yourself Tommy', `The task: "${todo}" has not been completed`);
+      Alert.alert(
+        "Check Yourself Tommy",
+        `The task: "${todo}" has not been completed`
+      );
     } else {
       dispatch(removeTodo(id));
     }
