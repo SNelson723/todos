@@ -8,11 +8,13 @@ const BarCode = ({ index, type, format, decode }) => {
       <View style={[styles.textContainer, { width: "25%" }]}>
         <Text style={styles.text}>{type}</Text>
       </View>
-      <View style={[styles.textContainer, { width: "30%" }]}>
+      <View
+        style={[styles.textContainer, styles.middleCol]}
+      >
         <Text style={styles.text}>{format}</Text>
       </View>
-      <View style={[styles.textContainer, { width: "45%" }]}>
-        <Text style={[styles.text, {paddingLeft: '15'}]}>{decode}</Text>
+      <View style={[styles.textContainer, { width: "40%" }]}>
+        <Text style={[styles.text]}>{decode}</Text>
       </View>
     </View>
   );
@@ -20,22 +22,29 @@ const BarCode = ({ index, type, format, decode }) => {
 
 const styles = StyleSheet.create({
   even: {
-    backgroundColor: "#F0F8FF",
+    backgroundColor: "#f5fffa",
   },
   odd: {
-    backgroundColor: "#dcdcdc",
+    backgroundColor: "#87cefa",
   },
   viewContainer: {
-    padding: 5,
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   textContainer: {
-    textAlign: 'center',
+    textAlign: "center",
+    paddingLeft: 5,
   },
   text: {
-    fontSize: 16
-  }
+    fontSize: 16,
+    paddingTop: 5,
+    paddingBottom: 5,
+  },
+  middleCol: {
+    width: "35%",
+    borderLeftWidth: 3,
+    borderRightWidth: 3
+  },
 });
 
 export default BarCode;

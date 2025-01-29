@@ -1,3 +1,6 @@
+import React from "react";
+import BarCode from "./BarCode";
+import ModalComponent from "../Modal/Modal";
 import {
   ScrollView,
   StyleSheet,
@@ -5,54 +8,67 @@ import {
   View,
   Text,
 } from "react-native";
-import BarCode from "./BarCode";
 
 const BarCodeTable = ({ decodes }) => {
-  const { width } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
+  const [filterText, setFilterText] = React.useState("Select a filter");
+  const [isVisible, setIsVisible] = React.useState(false);
 
   return (
     <View>
-      <View>
-        <Text style={styles.filterView}>Filter table logic</Text>
-      </View>
-      <ScrollView style={[styles.container, { width: width - 40 }]}>
+      {/* <View style={styles.filterContainer}>
+        <Text
+          onPress={() => setIsVisible(true)}
+          style={[
+            styles.filterView,
+            { color: filterText === "Select a filter" ? "grey" : "black" },
+          ]}
+        >
+          {filterText}
+        </Text>
+        <ModalComponent isVisible={isVisible} setIsVisible={setIsVisible} setFilterText={setFilterText} />
+      </View> */}
+
+      <View style={[styles.container, { width: width - 40 }]}>
         <View style={styles.headerView}>
           <Text style={[styles.text, { width: "25%" }]}>Type</Text>
-          <Text style={[styles.text, styles.middle, { width: "30%" }]}>
+          <Text style={[styles.text, styles.middle, { width: "35%" }]}>
             UPC Format
           </Text>
-          <Text style={[styles.text, { width: "45%" }]}>Decode</Text>
+          <Text style={[styles.text, { width: "40%" }]}>Decode</Text>
         </View>
-        {decodes.map((code, i) => (
-          <BarCode
-            key={`barcode-decode-${i}`}
-            index={i}
-            type={code.scannerType}
-            format={code.upcFormat}
-            decode={code.decode}
-          />
-        ))}
-      </ScrollView>
+        <ScrollView>
+          {decodes.map((code, i) => (
+            <BarCode
+              key={`barcode-decode-${i}`}
+              index={i}
+              type={code.scannerType}
+              format={code.upcFormat}
+              decode={code.decode}
+            />
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    maxHeight: "90%",
+    maxHeight: "88%",
     flex: 1,
     alignContent: "center",
-    borderWidth: 3
+    borderWidth: 3,
+    marginTop: 30
   },
   headerView: {
-    flex: 1,
     flexDirection: "row",
     borderBottomWidth: 3,
+    backgroundColor: "#f8f8ff",
   },
   text: {
     fontSize: 17,
-    fontWeight: 'bold',
-    textAlign: "left",
+    fontWeight: "bold",
     paddingTop: 5,
     paddingBottom: 5,
     textAlign: "center",
@@ -66,6 +82,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     padding: 10,
   },
+  filterContainer: {
+    backgroundColor: "#f8f8ff",
+    marginBottom: 10,
+    marginTop: 10,
+    borderRadius: 20,
+  },
+  modalStyle: {},
 });
 
 export default BarCodeTable;
