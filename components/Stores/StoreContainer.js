@@ -3,7 +3,9 @@ import { Text, View, StyleSheet } from "react-native";
 const StoreContainer = ({ store }) => {
   return (
     <View style={styles.item}>
-      <Text style={styles.text}>{store.storeName}</Text>
+      <Text numberOfLines={1} ellipsizeMode="tail" style={styles.text}>
+        {store.storeName}
+      </Text>
     </View>
   );
 };
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    textAlign: 'center'
+    textAlign: "center",
   },
 });
 
