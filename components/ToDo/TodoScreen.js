@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Text,
   TextInput,
@@ -7,12 +7,12 @@ import {
   Alert,
   StyleSheet,
   Platform,
-  StatusBar
+  StatusBar,
 } from "react-native";
 
-import TodoList from './TodoList'
-import { addTodo, clearTodos } from "../../src/store/reducers";
-import { useDispatch, useSelector } from 'react-redux';
+import TodoList from "./TodoList";
+import { addTodo, clearTodos } from "../../src/store/reducers/todoSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const TodoScreen = () => {
   const [text, setText] = React.useState("");
@@ -61,7 +61,6 @@ const TodoScreen = () => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   button: {

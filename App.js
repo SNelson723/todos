@@ -12,13 +12,19 @@ import BarCodesScreen from "./components/Bar Codes/BarCodesScreen";
 const Stack = createStackNavigator();
 
 const MainApp = () => {
+  const token = process.env.EXPO_PUBLIC_TOKEN;
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         {/* initial screen routed to on load === Home */}
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Todo" component={TodoScreen} />
-        <Stack.Screen name="Barcodes" component={BarCodesScreen} />
+        <Stack.Screen
+          name="Barcodes"
+          component={BarCodesScreen}
+          initialParams={{ token }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

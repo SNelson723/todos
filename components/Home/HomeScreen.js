@@ -12,9 +12,9 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Todo")}
+        onPress={() => navigation.navigate("Barcodes")}
       >
-        <Text style={styles.buttonText}>Bar Codes</Text>
+        <Text style={styles.buttonText}>Bar Codes Decodes</Text>
       </TouchableOpacity>
     </View>
   );
