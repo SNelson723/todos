@@ -22,6 +22,12 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>DCR Stores</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Contracts")}
+      >
+        <Text style={styles.buttonText}>Contracts</Text>
+      </TouchableOpacity>
     </View>
   );
 };
