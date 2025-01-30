@@ -4,9 +4,15 @@ import { getData } from "../../src/api/getData";
 import StoreContainer from "./StoreContainer";
 import { setStores } from "../../src/store/reducers/storeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import StoreModal from "./StoreModal";
+import { useToken } from "../../src/token";
 
-const StoresScreen = ({ route }) => {
-  const { token } = route.params;
+const StoresScreen = () => {
+  const token = useToken();
+  const [id, setId] = React.useState(-1);
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  // const { token } = route.params;
   const dispatch = useDispatch();
   const stores = useSelector((state) => state.stores.stores);
 
@@ -28,6 +34,7 @@ const StoresScreen = ({ route }) => {
       <View style={styles.searchView}>
         <Text>Search??</Text>
       </View>
+      <StoreModal isVisible={isVisible} setIsVisible={setIsVisible} setId={setId} />
       <ScrollView style={styles.scrollView}>
         {stores.length ? (
           stores.map((s, i) => <StoreContainer key={`store-${i}`} store={s} />)

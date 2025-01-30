@@ -1,7 +1,7 @@
 import { Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
-const ModalComponent = ({ isVisible, setIsVisible, setFilterText }) => {
+const StoreModal = ({ isVisible, setIsVisible, store }) => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.centeredView}>
@@ -13,24 +13,6 @@ const ModalComponent = ({ isVisible, setIsVisible, setFilterText }) => {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text
-                onPress={(e) => setFilterText("scannerType")}
-                style={styles.modalText}
-              >
-                Scanner Type
-              </Text>
-              <Text
-                onPress={() => setFilterText("upcFormat")}
-                style={styles.modalText}
-              >
-                UPC Format
-              </Text>
-              <Text
-                onPress={() => setFilterText("decode")}
-                style={styles.modalText}
-              >
-                Decode
-              </Text>
               <Pressable
                 style={styles.button}
                 onPress={() => setIsVisible(!isVisible)}
@@ -84,4 +66,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ModalComponent;
+export default StoreModal;

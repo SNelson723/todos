@@ -9,7 +9,7 @@ import { todoScreenStyles } from "../../src/styles";
 import { addTodo, clearTodos } from "../../src/store/reducers/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const TodoScreen = () => {
+const TodoScreen = ({ navigate }) => {
   const [text, setText] = React.useState("");
   const [id, setId] = React.useState(1);
   const dispatch = useDispatch();
