@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   navContainer: {
     flexDirection: "row",
     backgroundColor: "#f2f2f2",
-    paddingBottom: 20, // Adjust for safe area
+    paddingBottom: 20,
   },
   platform: {
     flex: 1,

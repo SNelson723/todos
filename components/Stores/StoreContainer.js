@@ -1,12 +1,19 @@
-import { Text, View, StyleSheet } from "react-native";
+import React from "react";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const StoreContainer = ({ store }) => {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate("StoreDetails", { store });
+  };
+
   return (
-    <View style={styles.item}>
+    <TouchableOpacity onPress={handlePress} style={styles.item}>
       <Text numberOfLines={1} ellipsizeMode="tail" style={styles.text}>
         {store.storeName}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

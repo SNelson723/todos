@@ -4,22 +4,20 @@ import { getData } from "../../src/api/getData";
 import StoreContainer from "./StoreContainer";
 import { setStores } from "../../src/store/reducers/storeSlice";
 import { useDispatch, useSelector } from "react-redux";
-import StoreModal from "./StoreModal";
 import { useToken } from "../../src/token";
 
 const StoresScreen = () => {
   const token = useToken();
-  const [id, setId] = React.useState(-1);
-  const [isVisible, setIsVisible] = React.useState(false);
-
-  // const { token } = route.params;
   const dispatch = useDispatch();
   const stores = useSelector((state) => state.stores.stores);
 
   React.useEffect(() => {
     const fetchStores = async () => {
       try {
-        const stores = await getData('https://devapi.dcr-support.com/mobile/DCRStores', token);
+        const stores = await getData(
+          "https://devapi.dcr-support.com/mobile/DCRStores",
+          token
+        );
         dispatch(setStores(stores));
       } catch (error) {
         console.log(error);
@@ -34,9 +32,8 @@ const StoresScreen = () => {
       <View style={styles.searchView}>
         <Text>Search??</Text>
       </View>
-      <StoreModal isVisible={isVisible} setIsVisible={setIsVisible} setId={setId} />
       <ScrollView style={styles.scrollView}>
-        {stores.length ? (
+        {stores && stores.length > 0 ? (
           stores.map((s, i) => <StoreContainer key={`store-${i}`} store={s} />)
         ) : (
           <Text>Loading...</Text>
@@ -55,11 +52,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#66cc91",
   },
   scrollView: {
-    maxHeight: '85%'
+    maxHeight: "85%",
   },
   searchView: {
-    marginBottom: 15
-  }
+    marginBottom: 15,
+  },
 });
 
 export default StoresScreen;
