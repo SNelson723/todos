@@ -12,6 +12,7 @@ import BarCodesScreen from "./components/BarCodes/BarCodesScreen";
 import StoresScreen from "./components/Stores/StoresScreen";
 import StoreDetailsScreen from "./components/Stores/StoreDetailsScreen";
 import ContractsScreen from "./components/Contracts/ContractsScreen";
+import ContractDetailsScreen from "./components/Contracts/ContractDetailsScreen";
 
 // Bearer Token Prop
 import { TokenProvider } from "./src/token";
@@ -22,11 +23,24 @@ import TabBar from "./components/NavBar/NavBar";
 // Make a stack to add screen to screen navigation since you have tab navigation set up
 const Stack = createStackNavigator();
 const StoresStack = () => (
-  <Stack.Navigator screenOptions={{
-    headerShown: false
-  }}>
+  <Stack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
     <Stack.Screen name="StoresList" component={StoresScreen} />
     <Stack.Screen name="StoreDetails" component={StoreDetailsScreen} />
+  </Stack.Navigator>
+);
+
+const ContractStack = () => (
+  <Stack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <Stack.Screen name="'ContractsList" component={ContractsScreen} />
+    <Stack.Screen name="ContractDetails" component={ContractDetailsScreen} />
   </Stack.Navigator>
 );
 
@@ -37,7 +51,7 @@ const TabNavigator = () => (
     <Tab.Screen name="Todo" component={TodoScreen} />
     <Tab.Screen name="Barcodes" component={BarCodesScreen} />
     <Tab.Screen name="Stores" component={StoresStack} />
-    <Tab.Screen name="Contracts" component={ContractsScreen} />
+    <Tab.Screen name="Contracts" component={ContractStack} />
   </Tab.Navigator>
 );
 

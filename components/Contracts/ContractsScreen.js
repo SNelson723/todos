@@ -10,7 +10,6 @@ const ContractsScreen = () => {
   const token = useToken();
   const dispatch = useDispatch();
   const contracts = useSelector((state) => state.contracts.contracts);
-  console.log(contracts);
 
   React.useEffect(() => {
     try {

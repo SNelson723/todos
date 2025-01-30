@@ -1,8 +1,11 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+
 
 const ContractContainer = ({ contract }) => {
+  const navigation = useNavigation();
   const handlePress = () => {
-    console.log(contract);
+    navigation.navigate('ContractDetails', { contract });
   };
 
   return (
