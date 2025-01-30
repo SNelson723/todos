@@ -14,7 +14,7 @@ const ModalComponent = ({ isVisible, setIsVisible, setFilterText }) => {
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text
-                onPress={(e) => setFilterText('scannerType')}
+                onPress={(e) => setFilterText("scannerType")}
                 style={styles.modalText}
               >
                 Scanner Type

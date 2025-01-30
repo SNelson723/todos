@@ -4,16 +4,17 @@ import { getData } from "../../src/api/getData";
 import BarCodeTable from "./BarCodeTable";
 import { setDecodes } from '../../src/store/reducers/decodeSlice';
 import { useDispatch, useSelector } from "react-redux";
+import { useToken } from "../../src/token";
 
-const BarCodesScreen = ({ route }) => {
-  const { token } = route.params;
+const BarCodesScreen = () => {
+  const token = useToken();
   const dispatch = useDispatch();
   const decodes = useSelector((state) => state.decodes.decodes);
 
   React.useEffect(() => {
     const fetchBarCodes = async () => {
       try {
-        const codes = await getBarCodes(
+        const codes = await getData(
           "https://devapi.dcr-support.com/mobile/BarcodeDecodes",
           token
         );
