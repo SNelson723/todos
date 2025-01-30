@@ -11,6 +11,7 @@ import TodoScreen from "./components/ToDo/TodoScreen";
 import BarCodesScreen from "./components/BarCodes/BarCodesScreen";
 import StoresScreen from "./components/Stores/StoresScreen";
 import StoreDetailsScreen from "./components/Stores/StoreDetailsScreen";
+import ContractsScreen from "./components/Contracts/ContractsScreen";
 
 // Bearer Token Prop
 import { TokenProvider } from "./src/token";
@@ -36,6 +37,7 @@ const TabNavigator = () => (
     <Tab.Screen name="Todo" component={TodoScreen} />
     <Tab.Screen name="Barcodes" component={BarCodesScreen} />
     <Tab.Screen name="Stores" component={StoresStack} />
+    <Tab.Screen name="Contracts" component={ContractsScreen} />
   </Tab.Navigator>
 );
 

@@ -1,20 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import GoBack from "../Utils/GoBack";
 
 const StoreDetailScreen = ({ route }) => {
   const { store } = route.params;
-  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={styles.backButton}
-      >
-        <Text style={styles.buttonText}>← Back</Text>
-      </TouchableOpacity>
-
+      <GoBack />
       <View style={styles.detailsContainer}>
         <View style={styles.detailView}>
           <Text style={styles.detailLabel}>Store ID</Text>
@@ -71,20 +64,6 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     borderRadius: 15,
     backgroundColor: "#f8f8f8",
-  },
-  backButton: {
-    paddingHorizontal: 20,
-    margin: 20,
-    paddingVertical: 10,
-    alignSelf: "left",
-    borderWidth: 2,
-    backgroundColor: "#f8f8f8",
-    width: 140,
-    borderRadius: 10,
-  },
-  buttonText: {
-    fontWeight: "900",
-    fontSize: 25,
   },
   detailView: {
     marginTop: 20,

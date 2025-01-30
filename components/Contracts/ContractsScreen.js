@@ -12,9 +12,10 @@ const ContractsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#66cc91",
+  },
+});
 
 export default ContractsScreen;
