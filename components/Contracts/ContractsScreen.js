@@ -2,25 +2,43 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { getData } from "../../src/api/getData";
 import { useToken } from "../../src/token";
+import { setContracts } from '../../src/store/reducers/contractSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import ContractContainer from './ContractContainer';
 
-const ContractsScreen = ({ route }) => {
+const ContractsScreen = () => {
   const token = useToken();
+  const dispatch = useDispatch();
+  const contracts = useSelector((state) => state.contracts.contracts);
+  console.log(contracts);
 
   React.useEffect(() => {
-    const fetchContracts = async () => {
-      const contracts = await getData(
-        "https://devapi.dcr-support.com/mobile/DCRStores/Contracts",
-        token
-      );
-      console.log(contracts.length)
-    };
-
-    fetchContracts();
+    try {
+      const fetchContracts = async () => {
+        const contracts = await getData(
+          "https://devapi.dcr-support.com/mobile/DCRStores/Contracts",
+          token
+        );
+        dispatch(setContracts(contracts));
+      };
+  
+      fetchContracts();
+    } catch (error) {
+      console.log(error);
+    }
   }, [token]);
 
   return (
     <View style={styles.container}>
-      <Text>Contracts go here</Text>
+      <ScrollView style={styles.scrollView}>
+        {contracts && contracts.length > 0 ? (
+          contracts.map((c, i) => (
+            <ContractContainer key={`contract-${i}`} contract={c} />
+          ))
+        ) : (
+          <Text>Loading...</Text>
+        )}
+      </ScrollView>
     </View>
   );
 };
@@ -31,6 +49,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#66cc91",
+  },
+  scrollView: {
+    maxHeight: "85%",
   },
 });
 
