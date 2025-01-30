@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   detailsContainer: {
-    top: 10,
     borderWidth: 3,
     width: "70%",
     justifyContent: "center",
