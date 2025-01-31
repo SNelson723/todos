@@ -32,7 +32,7 @@ const BarCodesScreen = () => {
     <View style={styles.container}>
       <Text style={styles.headerText}>Bar Code Decodes</Text>
       <View>
-        {decodes.length ? <BarCodeTable decodes={decodes} /> : <Text>Loading</Text>}
+        {decodes && decodes.length ? <BarCodeTable decodes={decodes} /> : <Text>Loading</Text>}
       </View>
     </View>
   );

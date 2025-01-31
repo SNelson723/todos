@@ -20,11 +20,11 @@ const FieldDisplay = ({ field, setViewingInput, setCurrentField }) => {
         <View style={detailsScreenStyles.detailView}>
           <Text style={detailsScreenStyles.detailLabel}>Number</Text>
           <Text style={detailsScreenStyles.detail}>{field.fieldNumber}</Text>
-        </View>{" "}
+        </View>
         <View style={detailsScreenStyles.detailView}>
           <Text style={detailsScreenStyles.detailLabel}>Description</Text>
           <Text style={detailsScreenStyles.detail}>{field.fieldDescription}</Text>
-        </View>{" "}
+        </View>
         <View style={detailsScreenStyles.detailView}>
           <Text style={detailsScreenStyles.detailLabel}>Range</Text>
           <Text style={detailsScreenStyles.detail}>{field.fieldRange}</Text>

@@ -11,24 +11,9 @@ import {
 
 const BarCodeTable = ({ decodes }) => {
   const { width, height } = useWindowDimensions();
-  const [filterText, setFilterText] = React.useState("Select a filter");
-  const [isVisible, setIsVisible] = React.useState(false);
 
   return (
     <View>
-      {/* <View style={styles.filterContainer}>
-        <Text
-          onPress={() => setIsVisible(true)}
-          style={[
-            styles.filterView,
-            { color: filterText === "Select a filter" ? "grey" : "black" },
-          ]}
-        >
-          {filterText}
-        </Text>
-        <ModalComponent isVisible={isVisible} setIsVisible={setIsVisible} setFilterText={setFilterText} />
-      </View> */}
-
       <View style={[styles.container, { width: width - 40 }]}>
         <View style={styles.headerView}>
           <Text style={[styles.text, { width: "25%" }]}>Type</Text>
