@@ -1,5 +1,6 @@
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import { detailsScreenStyles } from "../../src/styles";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const FieldDisplay = ({ field, setViewingInput, setCurrentField }) => {
   const handleGoBack = () => {
@@ -10,7 +11,8 @@ const FieldDisplay = ({ field, setViewingInput, setCurrentField }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-        <Text style={styles.buttonText}>⬅️ Go Back</Text>
+        <Icon name='arrow-back-ios-new' size={20} />
+        <Text style={styles.buttonText}>Back</Text>
       </TouchableOpacity>
       <View style={[detailsScreenStyles.detailsContainer, { width: 275, marginTop: '25'}]}>
         <View style={detailsScreenStyles.detailView}>
@@ -42,18 +44,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#66cc91",
   },
   backButton: {
-    paddingHorizontal: 20,
-    margin: 20,
-    paddingVertical: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
     borderWidth: 2,
     backgroundColor: "#f8f8f8",
-    width: 140,
+    width: 110,
     borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
   },
   buttonText: {
     fontWeight: "500",
-    fontSize: 18,
+    fontSize: 20,
     textAlign: "center",
+    paddingBottom: 2,
   },
 });
 
