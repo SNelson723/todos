@@ -1,5 +1,6 @@
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const GoBack = () => {
   const navigation = useNavigation();
@@ -8,7 +9,8 @@ const GoBack = () => {
       onPress={() => navigation.goBack()}
       style={styles.backButton}
     >
-      <Text style={styles.buttonText}>⬅️ Back</Text>
+      <Icon name='arrow-back-ios-new' size={20} />
+      <Text style={styles.buttonText}>Back</Text>
     </TouchableOpacity>
   );
 };
@@ -21,13 +23,16 @@ const styles = StyleSheet.create({
     alignSelf: "left",
     borderWidth: 2,
     backgroundColor: "#f8f8f8",
-    width: 130,
+    width: 110,
     borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   buttonText: {
     fontWeight: "600",
-    fontSize: 23,
-    textAlign: 'center'
+    fontSize: 20,
+    textAlign: 'center',
+    paddingBottom: 2
   },
 });
 
