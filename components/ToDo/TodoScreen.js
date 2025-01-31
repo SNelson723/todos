@@ -28,9 +28,17 @@ const TodoScreen = ({ navigate }) => {
   };
 
   const handleAdd = () => {
-    dispatch(addTodo({ id: id, todo: text, isChecked: false }));
-    setId((prev) => prev + 1);
-    setText("");
+    if (!text) {
+      Alert.alert("Missing", "Please enter a valid task");
+    } else {
+      try {
+        dispatch(addTodo({ id: id, todo: text, isChecked: false }));
+        setId((prev) => prev + 1);
+        setText("");
+      } catch (err) {
+        console.log(err);
+      }
+    }
   };
 
   return (

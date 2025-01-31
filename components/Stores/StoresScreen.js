@@ -5,11 +5,15 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { getData } from "../../src/api/getData";
 import { getStoresByCategory } from "../../src/api/getStore";
 import StoreContainer from "./StoreContainer";
-import { setStores, setDefaultStores } from "../../src/store/reducers/storeSlice";
+import {
+  setStores,
+  setDefaultStores,
+} from "../../src/store/reducers/storeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useToken } from "../../src/token";
 import { TextInput } from "react-native-gesture-handler";
@@ -39,9 +43,17 @@ const StoresScreen = () => {
   }, [token]);
 
   const handleSearch = async () => {
-    const newStores = await getStoresByCategory(text, token);
-    dispatch(setStores(newStores));
-    setText("");
+    if (!text) {
+      Alert.alert("Invalid", "Please enter a valid category");
+    } else {
+      try {
+        const newStores = await getStoresByCategory(text, token);
+        dispatch(setStores(newStores));
+        setText("");
+      } catch (err) {
+        console.log(err);
+      }
+    }
   };
 
   return (
@@ -54,7 +66,7 @@ const StoresScreen = () => {
           placeholder="Search by Category"
         />
         <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
-          <Text style={[styles.buttonText, { color: 'black'}]}>Search</Text>
+          <Text style={[styles.buttonText, { color: "black" }]}>Search</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.resetButton}
@@ -110,7 +122,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     fontWeight: "500",
-    color: 'white'
+    color: "white",
   },
   resetButton: {
     width: 100,

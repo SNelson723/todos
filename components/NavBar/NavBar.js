@@ -76,9 +76,9 @@ const icons = {
   Todo: <Icon name="checklist" size={30} />,
   Home: <Icon name="home" size={30} />,
   Barcodes: <Icon name="barcode-reader" size={30} />,
-  Stores: <Icon name='store' size={30} />,
-  Contracts: <Icon name='article' size={30} />,
-  Fields: <Icon name='list' size={30} />
+  Stores: <Icon name="store" size={30} />,
+  Contracts: <Icon name="article" size={30} />,
+  Fields: <Icon name="list" size={30} />,
 };
 
 const styles = StyleSheet.create({
