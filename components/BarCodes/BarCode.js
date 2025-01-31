@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingTop: 5,
     paddingBottom: 5,
+    fontWeight: '500'
   },
   middleCol: {
     width: "35%",

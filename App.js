@@ -4,6 +4,7 @@ import { store } from "./src/store/store";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
+import { StyleSheet } from "react-native";
 
 // Screens
 import HomeScreen from "./components/Home/HomeScreen";
@@ -75,4 +76,4 @@ export default function App() {
       </TokenProvider>
     </Provider>
   );
-}
+};
