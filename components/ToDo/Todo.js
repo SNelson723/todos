@@ -25,7 +25,7 @@ const Todo = ({ todo, id, isChecked }) => {
   return (
     <View style={styles.item}>
       <TouchableOpacity style={styles.checkbox} onPress={handleCheck}>
-        <Text>{isChecked ? "✅" : ""}</Text>
+        <Text style={styles.isChecked}>{isChecked ? "✅" : ""}</Text>
       </TouchableOpacity>
       <Text
         style={{
@@ -45,10 +45,15 @@ const Todo = ({ todo, id, isChecked }) => {
 const styles = StyleSheet.create({
   checkbox: {
     borderWidth: 1,
-    width: 25,
-    height: 25,
+    width: 27,
+    height: 27,
     textAlign: "center",
     alignItems: "center",
+  },
+  isChecked: {
+    flex: 1,
+    fontSize: 20,
+    bottom: 1.5
   },
   item: {
     marginBottom: 15,

@@ -19,6 +19,7 @@ import { TokenProvider } from "./src/token";
 
 // Tab bar and navigation structure
 import TabBar from "./components/NavBar/NavBar";
+import FieldsScreen from "./components/Fields/FieldsScreen";
 
 // Make a stack to add screen to screen navigation since you have tab navigation set up
 const Stack = createStackNavigator();
@@ -52,6 +53,7 @@ const TabNavigator = () => (
     <Tab.Screen name="Barcodes" component={BarCodesScreen} />
     <Tab.Screen name="Stores" component={StoresStack} />
     <Tab.Screen name="Contracts" component={ContractStack} />
+    <Tab.Screen name="Fields" component={FieldsScreen} />
   </Tab.Navigator>
 );
 

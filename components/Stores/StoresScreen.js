@@ -9,17 +9,17 @@ import {
 import { getData } from "../../src/api/getData";
 import { getStoresByCategory } from "../../src/api/getStore";
 import StoreContainer from "./StoreContainer";
-import { setStores } from "../../src/store/reducers/storeSlice";
+import { setStores, setDefaultStores } from "../../src/store/reducers/storeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useToken } from "../../src/token";
 import { TextInput } from "react-native-gesture-handler";
 
 const StoresScreen = () => {
   const [text, setText] = React.useState("");
-  const [isResetting, setIsResetting] = React.useState(0);
   const token = useToken();
   const dispatch = useDispatch();
   const stores = useSelector((state) => state.stores.stores);
+  const defaultStores = useSelector((state) => state.stores.defaultStores);
 
   React.useEffect(() => {
     const fetchStores = async () => {
@@ -29,13 +29,14 @@ const StoresScreen = () => {
           token
         );
         dispatch(setStores(stores));
+        dispatch(setDefaultStores(stores));
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchStores();
-  }, [token, isResetting]);
+  }, [token]);
 
   const handleSearch = async () => {
     const newStores = await getStoresByCategory(text, token);
@@ -57,7 +58,7 @@ const StoresScreen = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.resetButton}
-          onPress={() => setIsResetting((prev) => prev + 1)}
+          onPress={() => dispatch(setStores(defaultStores))}
         >
           <Text style={styles.buttonText}>Reset</Text>
         </TouchableOpacity>
