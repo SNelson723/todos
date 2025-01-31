@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View } from "react-native";
 import GoBack from "../Utils/GoBack";
 import { detailsScreenStyles } from "../../src/styles";
 

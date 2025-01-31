@@ -28,6 +28,12 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Contracts</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Fields", { screen: 'Fields'})}
+      >
+        <Text style={styles.buttonText}>Fields</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingTop: 150,
+    paddingTop: 125,
     alignItems: "flex-start",
     flexDirection: "row",
     gap: 50,
