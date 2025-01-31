@@ -9,7 +9,7 @@ import { todoScreenStyles } from "../../src/styles";
 import { addTodo, clearTodos } from "../../src/store/reducers/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const TodoScreen = ({ navigate }) => {
+const TodoScreen = () => {
   const [text, setText] = React.useState("");
   const [id, setId] = React.useState(1);
   const dispatch = useDispatch();
@@ -28,9 +28,17 @@ const TodoScreen = ({ navigate }) => {
   };
 
   const handleAdd = () => {
-    dispatch(addTodo({ id: id, todo: text, isChecked: false }));
-    setId((prev) => prev + 1);
-    setText("");
+    if (!text) {
+      Alert.alert("Missing", "Please enter a valid task");
+    } else {
+      try {
+        dispatch(addTodo({ id: id, todo: text, isChecked: false }));
+        setId((prev) => prev + 1);
+        setText("");
+      } catch (err) {
+        console.log(err);
+      }
+    }
   };
 
   return (

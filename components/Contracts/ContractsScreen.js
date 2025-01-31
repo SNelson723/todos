@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import { getData } from "../../src/api/getData";
 import { useToken } from "../../src/token";
@@ -39,9 +40,17 @@ const ContractsScreen = () => {
   }, [token, isResetting]);
 
   const handleSearch = async () => {
-    const newContracts = await getContractsByContractId(text, token);
-    dispatch(setContracts(newContracts));
-    setText("");
+    if (!text) {
+      Alert.alert("Invalid", "Please enter a valid ID");
+    } else {
+      try {
+        const newContracts = await getContractsByContractId(text, token);
+        dispatch(setContracts(newContracts));
+        setText("");
+      } catch (err) {
+        console.log(err);
+      }
+    }
   };
 
   return (

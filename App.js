@@ -47,7 +47,15 @@ const ContractStack = () => (
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
-  <Tab.Navigator tabBar={(props) => <TabBar {...props} />}>
+  <Tab.Navigator
+    tabBar={(props) => <TabBar {...props} />}
+    screenOptions={{
+      tabBarStyle: {
+        backgroundColor: "#f0f0f0",
+        height: 60,
+      },
+    }}
+  >
     <Tab.Screen name="Home" component={HomeScreen} />
     <Tab.Screen name="Todo" component={TodoScreen} />
     <Tab.Screen name="Barcodes" component={BarCodesScreen} />
