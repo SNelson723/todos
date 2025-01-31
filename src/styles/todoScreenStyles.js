@@ -12,6 +12,7 @@ export const todoScreenStyles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 16,
+    fontWeight: '500'
   },
   clearButton: {
     width: 85,
@@ -29,14 +30,12 @@ export const todoScreenStyles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 40 : 0,
   },
   input: {
-    height: 35,
-    marginBottom: 10,
-    borderWidth: 1,
-    paddingBottom: 5,
-    width: 210,
-    fontSize: 20,
+    marginBottom: 8,
+    borderWidth: 2,
+    width: 280,
+    fontSize: 17,
     backgroundColor: "#f8f8f8",
-    borderRadius: 8,
+    borderRadius: 12,
   },
   inputContainer: {
     flexDirection: "row",
