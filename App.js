@@ -4,7 +4,6 @@ import { store } from "./src/store/store";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet } from "react-native";
 
 // Screens
 import HomeScreen from "./components/Home/HomeScreen";
@@ -48,7 +47,15 @@ const ContractStack = () => (
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
-  <Tab.Navigator tabBar={(props) => <TabBar {...props} />}>
+  <Tab.Navigator
+    tabBar={(props) => <TabBar {...props} />}
+    screenOptions={{
+      tabBarStyle: {
+        backgroundColor: "#f0f0f0",
+        height: 60,
+      },
+    }}
+  >
     <Tab.Screen name="Home" component={HomeScreen} />
     <Tab.Screen name="Todo" component={TodoScreen} />
     <Tab.Screen name="Barcodes" component={BarCodesScreen} />
@@ -76,4 +83,4 @@ export default function App() {
       </TokenProvider>
     </Provider>
   );
-};
+}
