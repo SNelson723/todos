@@ -39,7 +39,7 @@ const FieldsScreen = () => {
     if (!text || !result.length) {
       Alert.alert("Error", "Please enter a valid field name");
     } else {
-      setCurrentField(result);
+      setCurrentField(result[0]);
       setText('');
       setViewingInput(false); // means we're looking at a searched field
     }
