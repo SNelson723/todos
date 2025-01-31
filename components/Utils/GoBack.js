@@ -8,25 +8,26 @@ const GoBack = () => {
       onPress={() => navigation.goBack()}
       style={styles.backButton}
     >
-      <Text style={styles.buttonText}>← Back</Text>
+      <Text style={styles.buttonText}>⬅️ Back</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   backButton: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     margin: 20,
-    paddingVertical: 10,
+    paddingVertical: 8,
     alignSelf: "left",
     borderWidth: 2,
     backgroundColor: "#f8f8f8",
-    width: 140,
+    width: 130,
     borderRadius: 10,
   },
   buttonText: {
-    fontWeight: "900",
-    fontSize: 25,
+    fontWeight: "600",
+    fontSize: 23,
+    textAlign: 'center'
   },
 });
 
