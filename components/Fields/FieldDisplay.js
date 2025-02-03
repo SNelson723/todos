@@ -11,10 +11,15 @@ const FieldDisplay = ({ field, setViewingInput, setCurrentField }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-        <Icon name='arrow-back-ios-new' size={20} />
+        <Icon name="arrow-back-ios-new" size={20} />
         <Text style={styles.buttonText}>Back</Text>
       </TouchableOpacity>
-      <View style={[detailsScreenStyles.detailsContainer, { width: 275, marginTop: '25'}]}>
+      <View
+        style={[
+          detailsScreenStyles.detailsContainer,
+          { width: 275, marginTop: "25" },
+        ]}
+      >
         <View style={detailsScreenStyles.detailView}>
           <Text style={detailsScreenStyles.detailLabel}>Name</Text>
           <Text style={detailsScreenStyles.detail}>{field.fieldName}</Text>
@@ -25,7 +30,9 @@ const FieldDisplay = ({ field, setViewingInput, setCurrentField }) => {
         </View>
         <View style={detailsScreenStyles.detailView}>
           <Text style={detailsScreenStyles.detailLabel}>Description</Text>
-          <Text style={detailsScreenStyles.detail}>{field.fieldDescription}</Text>
+          <Text style={detailsScreenStyles.detail}>
+            {field.fieldDescription}
+          </Text>
         </View>
         <View style={detailsScreenStyles.detailView}>
           <Text style={detailsScreenStyles.detailLabel}>Range</Text>
